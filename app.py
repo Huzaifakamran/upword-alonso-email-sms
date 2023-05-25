@@ -61,8 +61,8 @@ message_body = f"{current_date}\nDaily Sam's performance\n\nMessages: {dailyCoun
 
 #SEND EMAIL
 sender_email = "ssamthemessenger@gmail.com"
-to_emails = ["ssamthemessenger@gmail.com"]
-cc_emails = ["mohammadhuzaifa72@gmail.com"]
+to_emails = ["jim.gilligan@snedicors.com"]
+cc_emails = ["alonso@ssamassist.com"]
 password = "kqtozidepgzdpobb"
 
 HTML = """ 
@@ -512,12 +512,12 @@ for phone_number, messages in message_rows.items():
 						    Number:	{}
 					</a>""".format(phone_number)
     for i, (customer_message, bot_message, created_date) in enumerate(messages):
-        message_body += f"Customer Message: {customer_message}\nBot Message: {bot_message}\nCreated Date: {created_date}"
+        message_body += f"Customer Message:\n {customer_message}\n\nsSam message:\n {bot_message}\nCreated Date: {created_date}"
         HTML += """ 
 					<br />
 					<b>customer_message</b>: {} 
 					<br />
-					<b>bot_message</b>:  {}
+					<b>ssam_message</b>:  {}
 					<br />
 					<b>created_datetime</b>:  {} 
 					<br />""".format(customer_message,bot_message,created_date)
@@ -566,7 +566,7 @@ print(message_body)
 message = client.messages.create(
     body=message_body,
     from_='+15177013732',
-    to='+17078151463'
+    to='+18105996881'
 )
 
 msg = MIMEMultipart()
