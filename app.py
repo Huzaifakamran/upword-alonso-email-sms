@@ -15,7 +15,7 @@ current_time = datetime.datetime.now(timezone)
 current_date = current_time.strftime('%A, %B %d')
 yesterday_date = (current_time - datetime.timedelta(days=1)).strftime('%A, %B %d')
 
-DATABASE_URL = "postgres://eczvjchosxwpcs:96191a4fb8fc12e2fce2ec7315115b4b634614653acbb6f481d6a4a8d2170192@ec2-100-26-39-41.compute-1.amazonaws.com:5432/dfkh38d1dqeie4"
+DATABASE_URL = "<DB-URL>"
 
 conn = psycopg2.connect(DATABASE_URL, sslmode='require')
 
@@ -54,16 +54,16 @@ for row in daily_res:
     message_rows[phone_number].append([customer_message, bot_message,created_date])
 
 #SEND SMS
-account_sid = 'AC416bfb8094e2df7da7971e277b5ff764'
-auth_token = '22e9cbc7691ae507e6f54c2a9f73731f'
+account_sid = '<ACCOUNT-SID>'
+auth_token = '<AUTH-TOKEN>'
 client = Client(account_sid, auth_token)
 message_body = f"{current_date}\nDaily Sam's performance\n\nMessages: {dailyCount}\nWeekly Total: {weeklyCount}\nMonthly Total: {monthlyCount}\n\nInteractions\n"
 
 #SEND EMAIL
-sender_email = "ssamthemessenger@gmail.com"
-to_emails = ["jim.gilligan@snedicors.com"]
-cc_emails = ["alonso@ssamassist.com"]
-password = "kqtozidepgzdpobb"
+sender_email = "sender_email"
+to_emails = ["email"]
+cc_emails = ["email"]
+password = ""
 
 HTML = """ 
 <!DOCTYPE html>
@@ -565,8 +565,8 @@ print(message_body)
 
 message = client.messages.create(
     body=message_body,
-    from_='+15177013732',
-    to='+18105996881'
+    from_='<from>',
+    to='<to>'
 )
 
 msg = MIMEMultipart()
